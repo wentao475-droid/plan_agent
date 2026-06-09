@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学员规划信息表</title>
+    <link rel="stylesheet" href="/assets/element-ui.css">
+    <link rel="stylesheet" href="/assets/dashboard-ui.css?v=1">
+    <link rel="stylesheet" href="/assets/plan-report.css?v=3">
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+
+        .form-shell {
+            min-width: 0;
+        }
+
+        .intake-panel {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 28px;
+            box-shadow: var(--dash-shadow);
+        }
+
+        .intake-intro {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+
+        .intake-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: var(--dash-blue);
+            color: #ffffff;
+            display: grid;
+            place-items: center;
+            font-size: 26px;
+            font-weight: 800;
+            flex: 0 0 auto;
+        }
+
+        .intake-intro h2 {
+            color: #252934;
+            font-size: 24px;
+            line-height: 1.2;
+            margin-bottom: 6px;
+        }
+
+        .intake-intro p {
+            color: var(--dash-muted);
+            font-size: 14px;
+        }
+
+        .el-form {
+            width: 100%;
+        }
+
+        .el-form-item__label {
+            color: #3c4656;
+            font-weight: 700;
+            line-height: 1.3;
+            padding-bottom: 8px;
+        }
+
+        .el-input__inner,
+        .el-select .el-input__inner {
+            height: 44px;
+            border-radius: 8px;
+            border-color: #dfe7f1;
+            color: #252934;
+        }
+
+        .el-input__inner:focus,
+        .el-select .el-input.is-focus .el-input__inner {
+            border-color: var(--dash-blue);
+        }
+
+        .el-select {
+            width: 100%;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .form-actions .el-button {
+            min-width: 160px;
+            height: 44px;
+            border-radius: 6px;
+            font-weight: 800;
+        }
+
+        .el-button--primary {
+            background: var(--dash-blue);
+            border-color: var(--dash-blue);
+        }
+
+        .el-button--success {
+            background: var(--dash-green);
+            border-color: var(--dash-green);
+        }
+
+        .result-strip {
+            margin-top: 22px;
+        }
+
+        .report-stage {
+            margin-top: 28px;
+        }
+
+        .form-tip-card {
+            background: #dff3ff;
+            color: #252934;
+            border-radius: 8px;
+            padding: 24px;
+        }
+
+        .form-tip-card h2 {
+            color: var(--dash-blue);
+            font-size: 22px;
+            line-height: 1.25;
+            margin-bottom: 16px;
+        }
+
+        .form-tip-card p {
+            color: #526071;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        @media (max-width: 700px) {
+            .intake-panel {
+                padding: 20px;
+            }
+
+            .intake-intro {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .form-actions .el-button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="app" v-cloak>
+        <div class="dashboard">
+            <aside class="sidebar">
+                <div class="brand">
+                    <div class="brand-mark">P</div>
+                    <div class="brand-name">planschool</div>
+                </div>
+
+                <nav class="nav" aria-label="主导航">
+                    <a class="nav-link active" href="/"><span class="nav-dot" aria-hidden="true"></span>新建规划</a>
+                    <a class="nav-link" href="/view_plans.html"><span class="nav-symbol" aria-hidden="true">D</span>报告展示</a>
+                </nav>
+            </aside>
+
+            <main class="main">
+                <header class="topbar">
+                    <div class="title-wrap">
+                        <button class="menu-button" type="button" aria-label="菜单"></button>
+                        <h1 class="page-title">Planning Dashboard</h1>
+                    </div>
+                    <div class="profile" aria-label="当前用户">
+                        <div class="profile-text">
+                            <strong>升学规划系统</strong>
+                            <span>Advisor Workspace</span>
+                        </div>
+                        <div class="avatar">A</div>
+                    </div>
+                </header>
+
+                <section class="stats" aria-label="录入概览">
+                    <article class="stat-card">
+                        <div class="stat-icon">S</div>
+                        <div>
+                            <div class="stat-label">Student</div>
+                            <div class="stat-value">{{ form.Student_Name || '待录入' }}</div>
+                        </div>
+                    </article>
+                    <article class="stat-card">
+                        <div class="stat-icon">G</div>
+                        <div>
+                            <div class="stat-label">Grade</div>
+                            <div class="stat-value">{{ form.Grade ? form.Grade + '年级' : '--' }}</div>
+                        </div>
+                    </article>
+                    <article class="stat-card">
+                        <div class="stat-icon">E</div>
+                        <div>
+                            <div class="stat-label">Exam</div>
+                            <div class="stat-value">{{ labelOf('examSystems', form.Examination_System) || '--' }}</div>
+                        </div>
+                    </article>
+                    <article class="stat-card">
+                        <div class="stat-icon">Y</div>
+                        <div>
+                            <div class="stat-label">Year</div>
+                            <div class="stat-value">{{ labelOf('plannedYears', form.Planned_Year) || '2026' }}</div>
+                        </div>
+                    </article>
+                </section>
+
+                <div class="content-grid">
+                    <section class="form-shell">
+                        <div class="section-card">
+                            <div class="section-head">
+                                <h2 class="section-title">学员规划信息表</h2>
+                                <a href="/view_plans.html" class="outline-button">查看已生成方案</a>
+                            </div>
+
+                            <div class="intake-panel">
+                                <div class="intake-intro">
+                                    <div class="intake-icon">F</div>
+                                    <div>
+                                        <h2>填写基础信息</h2>
+                                        <p>使用 Element UI 表单录入学生情况，生成后会以报告式页面展示。</p>
+                                    </div>
+                                </div>
+
+                                <el-form ref="planForm" :model="form" :rules="rules" label-position="top">
+                                    <el-row :gutter="18">
+                                        <el-col :xs="24" :sm="12">
+                                            <el-form-item label="学员姓名" prop="Student_Name">
+                                                <el-input v-model.trim="form.Student_Name" placeholder="请输入学员姓名"></el-input>
+                                            </el-form-item>
+                                        </el-col>
+                                        <el-col :xs="24" :sm="12">
+                                            <el-form-item label="年级" prop="Grade">
+                                                <el-select v-model="form.Grade" placeholder="请选择年级">
+                                                    <el-option v-for="item in options.grades" :key="item.value" :label="item.label" :value="item.value"></el-option>
+                                                </el-select>
+                                            </el-form-item>
+                                        </el-col>
+
+                                        <el-col :xs="24" :sm="12">
+                                            <el-form-item label="考试体系" prop="Examination_System">
+                                                <el-select v-model="form.Examination_System" placeholder="请选择考试体系">
+                                                    <el-option v-for="item in options.examSystems" :key="item.value" :label="item.label" :value="item.value"></el-option>
+                                                </el-select>
+                                            </el-form-item>
+                                        </el-col>
+                                        <el-col :xs="24" :sm="12">
+                                            <el-form-item label="成绩范围" prop="Grade_Range">
+                                                <el-select v-model="form.Grade_Range" placeholder="请选择成绩范围">
+                                                    <el-option v-for="item in options.gradeRanges" :key="item.value" :label="item.label" :value="item.value"></el-option>
+                                                </el-select>
+                                            </el-form-item>
+                                        </el-col>
+
+                                        <el-col :xs="24" :sm="12">
+                                            <el-form-item label="优势学科大类" prop="Strong_Subject_Categ">
+                                                <el-select v-model="form.Strong_Subject_Categ" placeholder="请选择优势学科">
+                                                    <el-option v-for="item in options.strongSubjects" :key="item.value" :label="item.label" :value="item.value"></el-option>
+                                                </el-select>
+                                            </el-form-item>
+                                        </el-col>
+                                        <el-col :xs="24" :sm="12">
+                                            <el-form-item label="计划入学年" prop="Planned_Year">
+                                                <el-select v-model="form.Planned_Year" placeholder="请选择计划入学年">
+                                                    <el-option v-for="item in options.plannedYears" :key="item.value" :label="item.label" :value="item.value"></el-option>
+                                                </el-select>
+                                            </el-form-item>
+                                        </el-col>
+
+                                        <el-col :xs="24" :sm="12">
+                                            <el-form-item label="留学意向地区" prop="Study_Region">
+                                                <el-select v-model="form.Study_Region" placeholder="请选择留学地区">
+                                                    <el-option v-for="item in options.studyRegions" :key="item.value" :label="item.label" :value="item.value"></el-option>
+                                                </el-select>
+                                            </el-form-item>
+                                        </el-col>
+                                        <el-col :xs="24" :sm="12">
+                                            <el-form-item label="IELTS" prop="ielts">
+                                                <el-input v-model.trim="form.ielts" placeholder="如: 6.5"></el-input>
+                                            </el-form-item>
+                                        </el-col>
+
+                                        <el-col :xs="24" :sm="12">
+                                            <el-form-item label="意向院校" prop="Intended_Institution">
+                                                <el-input v-model.trim="form.Intended_Institution" placeholder="如: G5 / UCL"></el-input>
+                                            </el-form-item>
+                                        </el-col>
+                                        <el-col :xs="24" :sm="12">
+                                            <el-form-item label="意向专业" prop="Intended_Major">
+                                                <el-input v-model.trim="form.Intended_Major" placeholder="如: 数学"></el-input>
+                                            </el-form-item>
+                                        </el-col>
+                                    </el-row>
+
+                                    <div class="form-actions">
+                                        <el-button type="primary" :loading="loading" @click="generatePlan">生成规划方案</el-button>
+                                        <el-button type="success" plain @click="goToPlans">查看方案库</el-button>
+                                    </div>
+                                </el-form>
+
+                                <el-alert
+                                    v-if="statusMessage"
+                                    class="result-strip"
+                                    :title="statusMessage"
+                                    :type="statusType"
+                                    show-icon
+                                    :closable="false">
+                                </el-alert>
+                            </div>
+                        </div>
+
+                        <div id="planContainer" class="report-stage"></div>
+                    </section>
+
+                    <aside class="side-panel">
+                        <section class="quote-card" aria-label="学习标语">
+                            <div class="quote-mark">"</div>
+                            <strong>PLAN SMART</strong>
+                            <span>用清晰输入换来可执行的升学路线。</span>
+                        </section>
+
+                        <section class="form-tip-card" aria-label="填写提示">
+                            <h2>填写提示</h2>
+                            <p>目标院校、专业和 IELTS 已设为必填，确保工作流入参完整。</p>
+                            <p>生成后会自动下载参数 JSON，并展示规划报告。</p>
+                            <p>方案库中仍可查看和下载原始 Markdown。</p>
+                        </section>
+                    </aside>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="/assets/vue.min.js"></script>
+    <script src="/assets/element-ui.min.js"></script>
+    <script src="/assets/markdown-it.min.js?v=2"></script>
+    <script src="/assets/plan-renderer.js?v=2"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data() {
+                const required = message => [{ required: true, message, trigger: 'change' }];
+                return {
+                    loading: false,
+                    statusMessage: '',
+                    statusType: 'info',
+                    form: {
+                        Student_Name: '',
+                        Grade: '',
+                        Examination_System: '',
+                        Grade_Range: '',
+                        Strong_Subject_Categ: '',
+                        Planned_Year: '',
+                        Study_Region: '',
+                        Intended_Institution: '',
+                        Intended_Major: '',
+                        ielts: ''
+                    },
+                    rules: {
+                        Student_Name: required('请输入学员姓名'),
+                        Grade: required('请选择年级'),
+                        Examination_System: required('请选择考试体系'),
+                        Grade_Range: required('请选择成绩范围'),
+                        Strong_Subject_Categ: required('请选择优势学科'),
+                        Planned_Year: required('请选择计划入学年'),
+                        Study_Region: required('请选择留学地区'),
+                        Intended_Institution: required('请输入意向院校'),
+                        Intended_Major: required('请输入意向专业'),
+                        ielts: required('请输入 IELTS 成绩')
+                    },
+                    options: {
+                        grades: [
+                            { value: '9', label: '9年级' },
+                            { value: '10', label: '10年级' },
+                            { value: '11', label: '11年级' },
+                            { value: '12', label: '12年级' },
+                            { value: '13', label: '13年级' }
+                        ],
+                        examSystems: [
+                            { value: '1', label: 'ALEVEL' },
+                            { value: '2', label: 'IB' },
+                            { value: '3', label: 'AP' },
+                            { value: '4', label: '其他' }
+                        ],
+                        gradeRanges: [
+                            { value: '1', label: 'A*AA-A*A*A*' },
+                            { value: '2', label: 'AAB-AAA' },
+                            { value: '3', label: 'BBB-ABB' },
+                            { value: '4', label: 'CCC-CCD' }
+                        ],
+                        strongSubjects: [
+                            { value: '1', label: '数学计算机' },
+                            { value: '2', label: '物理工程地理环境' },
+                            { value: '3', label: '经济商科' },
+                            { value: '4', label: '生物化学' },
+                            { value: '5', label: '人文社科' },
+                            { value: '6', label: '其他学科' }
+                        ],
+                        plannedYears: [
+                            { value: '1', label: '2026年' },
+                            { value: '2', label: '2027年' },
+                            { value: '3', label: '2028年' },
+                            { value: '4', label: '2029年' },
+                            { value: '5', label: '2030年' }
+                        ],
+                        studyRegions: [
+                            { value: '1', label: '英国' },
+                            { value: '2', label: '美国' },
+                            { value: '3', label: '加拿大' },
+                            { value: '4', label: '澳大利亚' },
+                            { value: '5', label: '新加坡' },
+                            { value: '6', label: '香港' },
+                            { value: '7', label: '新西兰' }
+                        ]
+                    }
+                };
+            },
+            methods: {
+                labelOf(optionGroup, value) {
+                    const match = this.options[optionGroup].find(item => item.value === value);
+                    return match ? match.label : '';
+                },
+                goToPlans() {
+                    window.location.href = '/view_plans.html';
+                },
+                generatePlan() {
+                    this.$refs.planForm.validate(async valid => {
+                        if (!valid) {
+                            this.statusType = 'error';
+                            this.statusMessage = '请先填写所有必填字段。';
+                            return;
+                        }
+
+                        const parameters = { ...this.form };
+                        this.downloadJson(parameters);
+
+                        this.loading = true;
+                        this.statusType = 'info';
+                        this.statusMessage = '正在执行工作流生成规划方案，请稍候...';
+
+                        try {
+                            const response = await fetch('/process', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                                body: new URLSearchParams({ json_data: JSON.stringify(parameters) })
+                            });
+
+                            if (!response.ok) {
+                                throw new Error(`服务器错误: ${response.status}`);
+                            }
+
+                            const result = await response.json();
+                            if (result.status !== 'success') {
+                                throw new Error(result.message || '执行失败');
+                            }
+
+                            if (result.md_content) {
+                                this.statusType = 'success';
+                                this.statusMessage = '规划方案已生成，报告已展示在页面下方。';
+                                const planContainer = document.getElementById('planContainer');
+                                window.PlanRenderer.renderReport(result.md_content, parameters, planContainer);
+                                this.$nextTick(() => planContainer.scrollIntoView({ behavior: 'smooth' }));
+                            } else {
+                                this.statusType = 'warning';
+                                this.statusMessage = '工作流已返回，但暂未获得可展示的 Markdown 内容。';
+                            }
+                        } catch (error) {
+                            this.statusType = 'error';
+                            this.statusMessage = `执行出错: ${error.message}`;
+                        } finally {
+                            this.loading = false;
+                        }
+                    });
+                },
+                downloadJson(parameters) {
+                    const jsonStr = JSON.stringify(parameters, null, 4);
+                    const blob = new Blob([jsonStr], { type: 'application/json' });
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = `${parameters.Student_Name || '学员'}_parameters.json`;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,261 @@
+.plan-report {
+    max-width: 1180px;
+    margin: 0 auto 48px;
+    padding: 0 20px 40px;
+    color: #263241;
+}
+
+.plan-report,
+.plan-report * {
+    box-sizing: border-box;
+}
+
+.plan-report__hero {
+    background: #ffffff;
+    border: 1px solid #e3e8ef;
+    border-top: 4px solid #2f7dd3;
+    border-radius: 8px;
+    padding: 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 24px rgba(37, 48, 67, 0.08);
+}
+
+.plan-report__eyebrow {
+    margin: 0 0 8px;
+    color: #64748b;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0;
+}
+
+.plan-report__title {
+    margin: 0;
+    color: #182435;
+    font-size: 30px;
+    line-height: 1.25;
+    font-weight: 750;
+    text-align: left;
+}
+
+.plan-report__subtitle {
+    margin: 12px 0 0;
+    color: #526173;
+    font-size: 15px;
+}
+
+.plan-report__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 18px;
+}
+
+.plan-report__pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 30px;
+    padding: 5px 10px;
+    background: #f5f8fb;
+    border: 1px solid #dbe4ee;
+    border-radius: 6px;
+    color: #334155;
+    font-size: 13px;
+    line-height: 1.35;
+}
+
+.plan-report__pill strong {
+    color: #182435;
+    font-weight: 650;
+}
+
+.plan-report__layout {
+    display: grid;
+    grid-template-columns: minmax(190px, 240px) minmax(0, 1fr);
+    gap: 20px;
+    align-items: start;
+}
+
+.plan-report__toc {
+    position: sticky;
+    top: 18px;
+    min-width: 0;
+    background: #ffffff;
+    border: 1px solid #e3e8ef;
+    border-radius: 8px;
+    padding: 18px;
+    box-shadow: 0 4px 16px rgba(37, 48, 67, 0.06);
+}
+
+.plan-report__toc-title {
+    margin: 0 0 12px;
+    color: #182435;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.plan-report__toc-list {
+    display: grid;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.plan-report__toc a {
+    display: block;
+    color: #475569;
+    text-decoration: none;
+    font-size: 13px;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+}
+
+.plan-report__toc a:hover {
+    color: #2f7dd3;
+}
+
+.plan-report__content {
+    min-width: 0;
+    background: #ffffff;
+    border: 1px solid #e3e8ef;
+    border-radius: 8px;
+    padding: 34px 40px;
+    box-shadow: 0 8px 24px rgba(37, 48, 67, 0.08);
+}
+
+.plan-report__body {
+    font-size: 16px;
+    line-height: 1.78;
+    overflow-wrap: anywhere;
+}
+
+.plan-report__body h1 {
+    margin: 0 0 24px;
+    color: #182435;
+    font-size: 28px;
+    line-height: 1.3;
+    text-align: left;
+}
+
+.plan-report__body h2 {
+    margin: 34px 0 14px;
+    padding-top: 8px;
+    color: #182435;
+    font-size: 22px;
+    line-height: 1.35;
+    border-top: 1px solid #edf2f7;
+}
+
+.plan-report__body h2:first-child {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
+}
+
+.plan-report__body h3 {
+    margin: 26px 0 10px;
+    color: #243246;
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+.plan-report__body h4 {
+    margin: 20px 0 8px;
+    color: #334155;
+    font-size: 16px;
+}
+
+.plan-report__body p {
+    margin: 0 0 14px;
+}
+
+.plan-report__body ul,
+.plan-report__body ol {
+    margin: 0 0 18px 22px;
+    padding: 0;
+}
+
+.plan-report__body li {
+    margin: 7px 0;
+    padding-left: 2px;
+}
+
+.plan-report__body strong {
+    color: #172033;
+    font-weight: 700;
+}
+
+.plan-report__body hr {
+    border: 0;
+    border-top: 1px solid #e5edf5;
+    margin: 26px 0;
+}
+
+.plan-report__body a {
+    color: #2563c9;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.plan-report__body blockquote {
+    margin: 18px 0;
+    padding: 14px 18px;
+    background: #f6f9fc;
+    border-left: 4px solid #8ab4e6;
+    color: #465466;
+}
+
+.plan-report__body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 18px 0;
+    font-size: 14px;
+}
+
+.plan-report__body th,
+.plan-report__body td {
+    border: 1px solid #dce5ef;
+    padding: 10px 12px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.plan-report__body th {
+    background: #f3f7fb;
+    color: #1e293b;
+}
+
+.plan-report__empty {
+    background: #ffffff;
+    border: 1px dashed #b9c8d8;
+    border-radius: 8px;
+    padding: 28px;
+    color: #64748b;
+}
+
+@media (max-width: 860px) {
+    .plan-report {
+        padding: 0 14px 32px;
+    }
+
+    .plan-report__hero {
+        padding: 22px;
+    }
+
+    .plan-report__title {
+        font-size: 24px;
+    }
+
+    .plan-report__layout {
+        grid-template-columns: 1fr;
+    }
+
+    .plan-report__toc {
+        position: static;
+    }
+
+    .plan-report__content {
+        padding: 24px 20px;
+    }
+}

@@ -1,0 +1,281 @@
+127.0.0.1 - - [08/Jun/2026 16:27:24] "GET /plan_report?filename=%E5%93%88%E5%93%88_UCL_%E6%95%B0%E5%AD%A6.md HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:27:25] "GET /view_plans.html HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:27:48] "GET /plan_report?filename=%E5%93%88%E5%93%88_UCL_%E6%95%B0%E5%AD%A6.md HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:27:48] "GET /assets/plan-report.css HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:27:48] "GET /assets/markdown-it.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:27:48] "GET /assets/plan-renderer.js HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:27:48] "GET /view_plan?filename=%E5%93%88%E5%93%88_UCL_%E6%95%B0%E5%AD%A6.md HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:28:52] "GET /plan_report?filename=%E5%93%88%E5%93%88_UCL_%E6%95%B0%E5%AD%A6.md HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:28:52] "GET /assets/plan-report.css HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:28:52] "GET /assets/markdown-it.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:28:52] "GET /assets/plan-renderer.js HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:28:52] "GET /view_plan?filename=%E5%93%88%E5%93%88_UCL_%E6%95%B0%E5%AD%A6.md HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:29:29] "GET /plan_report?filename=%E5%93%88%E5%93%88_UCL_%E6%95%B0%E5%AD%A6.md HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:29:29] "GET /assets/plan-report.css HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:29:29] "GET /assets/markdown-it.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:29:29] "GET /assets/plan-renderer.js HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:29:29] "GET /view_plan?filename=%E5%93%88%E5%93%88_UCL_%E6%95%B0%E5%AD%A6.md HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:29:58] "GET /plan_report?filename=%E5%93%88%E5%93%88_UCL_%E6%95%B0%E5%AD%A6.md HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:29:58] "GET /assets/plan-report.css HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:29:58] "GET /assets/markdown-it.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:29:58] "GET /assets/plan-renderer.js HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:29:58] "GET /view_plan?filename=%E5%93%88%E5%93%88_UCL_%E6%95%B0%E5%AD%A6.md HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:31:02] "GET /plan_report?filename=%E5%93%88%E5%93%88_UCL_%E6%95%B0%E5%AD%A6.md&check=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:31:02] "GET /assets/plan-report.css?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:31:02] "GET /assets/markdown-it.min.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:31:02] "GET /assets/plan-renderer.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:31:02] "GET /view_plan?filename=%E5%93%88%E5%93%88_UCL_%E6%95%B0%E5%AD%A6.md HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:32:33] "GET /plan_report?filename=%E5%93%88%E5%93%88_UCL_%E6%95%B0%E5%AD%A6.md&check=3 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:32:33] "GET /assets/plan-report.css?v=3 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:32:33] "GET /assets/markdown-it.min.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:32:33] "GET /assets/plan-renderer.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:32:33] "GET /view_plan?filename=%E5%93%88%E5%93%88_UCL_%E6%95%B0%E5%AD%A6.md HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:32:49] "GET /view_plans.html HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:32:49] "GET /plans HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:32:50] "GET /plan_report?filename=%E5%93%88%E5%93%88_UCL_%E6%95%B0%E5%AD%A6.md HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:32:50] "GET /plan_report?filename=%E5%93%88%E5%93%88_UCL_%E6%95%B0%E5%AD%A6.md HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:32:50] "GET /assets/plan-report.css?v=3 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:32:50] "GET /assets/markdown-it.min.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:32:50] "GET /assets/plan-renderer.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:32:50] "GET /view_plan?filename=%E5%93%88%E5%93%88_UCL_%E6%95%B0%E5%AD%A6.md HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:32:50] "GET /assets/plan-report.css?v=3 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:32:50] "GET /assets/markdown-it.min.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:32:50] "GET /assets/plan-renderer.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:32:50] "GET /view_plan?filename=%E5%93%88%E5%93%88_UCL_%E6%95%B0%E5%AD%A6.md HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:33:22] "GET /plan_report?filename=%E5%93%88%E5%93%88_UCL_%E6%95%B0%E5%AD%A6.md HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:33:22] "GET /assets/plan-report.css?v=3 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:33:22] "GET /assets/markdown-it.min.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:33:22] "GET /assets/plan-renderer.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:33:22] "GET /view_plan?filename=%E5%93%88%E5%93%88_UCL_%E6%95%B0%E5%AD%A6.md HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:34:31] "GET /plan_report?filename=%E5%93%88%E5%93%88_UCL_%E6%95%B0%E5%AD%A6.md HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:34:31] "GET /assets/plan-report.css?v=3 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:34:31] "GET /assets/markdown-it.min.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:34:31] "GET /assets/plan-renderer.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:34:31] "GET /view_plan?filename=%E5%93%88%E5%93%88_UCL_%E6%95%B0%E5%AD%A6.md HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:35:53] "GET /view_plans.html HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:35:53] "GET /plans HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:35:54] "GET /plan_report?filename=%E5%93%88%E5%93%88_UCL_%E6%95%B0%E5%AD%A6.md HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:35:55] "GET /assets/plan-report.css?v=3 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:35:55] "GET /assets/markdown-it.min.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:35:55] "GET /assets/plan-renderer.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:35:55] "GET /view_plan?filename=%E5%93%88%E5%93%88_UCL_%E6%95%B0%E5%AD%A6.md HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:42:37] "GET /download_plan?filename=%E5%93%88%E5%93%88_UCL_%E6%95%B0%E5%AD%A6.md HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:42:37] "GET /download_plan?filename=%E5%93%88%E5%93%88_UCL_%E6%95%B0%E5%AD%A6.md HTTP/1.1" 500 -
+127.0.0.1 - - [08/Jun/2026 16:43:58] "GET /plan_report?filename=%E5%93%88%E5%93%88_UCL_%E6%95%B0%E5%AD%A6.md HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:43:58] "GET /assets/plan-report.css?v=3 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:43:58] "GET /assets/markdown-it.min.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:43:58] "GET /assets/plan-renderer.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:43:59] "GET /view_plan?filename=%E5%93%88%E5%93%88_UCL_%E6%95%B0%E5%AD%A6.md HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:50:27] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:50:27] "GET /assets/plan-report.css?v=3 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:50:27] "GET /assets/markdown-it.min.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:50:28] "GET /assets/plan-renderer.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:50:29] "GET /view_plans.html HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:50:30] "GET /plans HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:59:08] "GET /view_plans.html HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:59:28] "GET /view_plans.html HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:59:28] "GET /plans HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:59:57] "GET /view_plans.html HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 16:59:57] "GET /plans HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:00:14] "GET /view_plans.html HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:00:14] "GET /plans HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:01:59] "GET /view_plans.html HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:01:59] "GET /plans HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:02:20] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:02:20] "GET /assets/plan-report.css?v=3 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:02:20] "GET /assets/markdown-it.min.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:02:20] "GET /assets/plan-renderer.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:02:23] "GET /view_plans.html HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:02:23] "GET /plans HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:02:25] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:02:26] "GET /assets/plan-report.css?v=3 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:02:26] "GET /assets/markdown-it.min.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:02:26] "GET /assets/plan-renderer.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:02:45] "GET /plan_report?filename=%E5%93%88%E5%93%88_UCL_%E6%95%B0%E5%AD%A6.md HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:02:45] "GET /assets/plan-report.css?v=3 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:02:45] "GET /assets/markdown-it.min.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:02:45] "GET /assets/plan-renderer.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:02:46] "GET /view_plan?filename=%E5%93%88%E5%93%88_UCL_%E6%95%B0%E5%AD%A6.md HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:09:42] "GET /assets/element-ui.css HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:09:42] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:09:45] "GET /plan_report?filename=%E5%93%88%E5%93%88_UCL_%E6%95%B0%E5%AD%A6.md HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:10:02] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:10:02] "GET /assets/element-ui.css HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:10:02] "GET /assets/dashboard-ui.css?v=1 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:10:02] "GET /assets/vue.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:10:02] "GET /assets/plan-report.css?v=3 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:10:02] "GET /assets/element-ui.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:10:02] "GET /assets/markdown-it.min.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:10:02] "GET /assets/plan-renderer.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:10:02] "GET /assets/fonts/element-icons.woff HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:10:34] "GET /plan_report?filename=%E5%93%88%E5%93%88_UCL_%E6%95%B0%E5%AD%A6.md HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:10:34] "GET /assets/dashboard-ui.css?v=1 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:10:34] "GET /assets/plan-report.css?v=3 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:10:34] "GET /assets/markdown-it.min.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:10:34] "GET /assets/plan-renderer.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:10:34] "GET /view_plan?filename=%E5%93%88%E5%93%88_UCL_%E6%95%B0%E5%AD%A6.md HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:10:52] "GET /plan_report?filename=%E5%93%88%E5%93%88_UCL_%E6%95%B0%E5%AD%A6.md HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:10:52] "GET /assets/dashboard-ui.css?v=1 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:10:52] "GET /assets/plan-report.css?v=3 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:10:52] "GET /assets/markdown-it.min.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:10:52] "GET /assets/plan-renderer.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:10:52] "GET /view_plan?filename=%E5%93%88%E5%93%88_UCL_%E6%95%B0%E5%AD%A6.md HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:10:53] "GET /plan_report?filename=%E5%93%88%E5%93%88_UCL_%E6%95%B0%E5%AD%A6.md HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:10:53] "GET /assets/dashboard-ui.css?v=1 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:10:53] "GET /assets/plan-report.css?v=3 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:10:53] "GET /assets/markdown-it.min.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:10:53] "GET /assets/plan-renderer.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:10:53] "GET /view_plan?filename=%E5%93%88%E5%93%88_UCL_%E6%95%B0%E5%AD%A6.md HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:11:47] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:11:47] "GET /assets/element-ui.css HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:11:47] "GET /assets/dashboard-ui.css?v=1 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:11:47] "GET /assets/plan-report.css?v=3 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:11:47] "GET /assets/vue.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:11:47] "GET /assets/element-ui.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:11:47] "GET /assets/markdown-it.min.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:11:47] "GET /assets/plan-renderer.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:11:47] "GET /assets/fonts/element-icons.woff HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:11:48] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:11:48] "GET /assets/element-ui.css HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:11:48] "GET /assets/dashboard-ui.css?v=1 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:11:48] "GET /assets/plan-report.css?v=3 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:11:48] "GET /assets/vue.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:11:48] "GET /assets/element-ui.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:11:48] "GET /assets/markdown-it.min.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:11:48] "GET /assets/plan-renderer.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:11:48] "GET /assets/fonts/element-icons.woff HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:12:14] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:12:15] "GET /assets/element-ui.css HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:12:15] "GET /assets/dashboard-ui.css?v=1 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:12:15] "GET /assets/plan-report.css?v=3 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:12:15] "GET /assets/vue.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:12:15] "GET /assets/element-ui.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:12:15] "GET /assets/markdown-it.min.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:12:15] "GET /assets/plan-renderer.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:12:15] "GET /assets/fonts/element-icons.woff HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:12:16] "GET /plan_report?filename=%E5%93%88%E5%93%88_UCL_%E6%95%B0%E5%AD%A6.md HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:12:16] "GET /assets/dashboard-ui.css?v=1 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:12:16] "GET /assets/plan-report.css?v=3 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:12:16] "GET /assets/markdown-it.min.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:12:16] "GET /assets/plan-renderer.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:12:16] "GET /view_plan?filename=%E5%93%88%E5%93%88_UCL_%E6%95%B0%E5%AD%A6.md HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:13:14] "GET /view_plans.html HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:13:14] "GET /plans HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:13:17] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:13:17] "GET /assets/element-ui.css HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:13:17] "GET /assets/dashboard-ui.css?v=1 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:13:17] "GET /assets/plan-report.css?v=3 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:13:17] "GET /assets/vue.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:13:17] "GET /assets/element-ui.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:13:17] "GET /assets/markdown-it.min.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:13:18] "GET /assets/plan-renderer.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:13:18] "GET /assets/fonts/element-icons.woff HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:13:24] "GET /view_plans.html HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:13:24] "GET /plans HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:13:28] "GET /plan_report?filename=%E5%93%88%E5%93%88_UCL_%E6%95%B0%E5%AD%A6.md HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:13:28] "GET /assets/dashboard-ui.css?v=1 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:13:28] "GET /assets/plan-report.css?v=3 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:13:28] "GET /assets/markdown-it.min.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:13:28] "GET /assets/plan-renderer.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:13:29] "GET /view_plan?filename=%E5%93%88%E5%93%88_UCL_%E6%95%B0%E5%AD%A6.md HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:14:08] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:14:08] "GET /assets/element-ui.css HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:14:08] "GET /assets/dashboard-ui.css?v=1 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:14:08] "GET /assets/plan-report.css?v=3 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:14:08] "GET /assets/vue.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:14:08] "GET /assets/element-ui.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:14:08] "GET /assets/markdown-it.min.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:14:08] "GET /assets/plan-renderer.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:14:09] "GET /assets/fonts/element-icons.woff HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:14:11] "GET /view_plans.html HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:14:11] "GET /plans HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:14:13] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:14:13] "GET /assets/element-ui.css HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:14:13] "GET /assets/dashboard-ui.css?v=1 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:14:13] "GET /assets/plan-report.css?v=3 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:14:13] "GET /assets/vue.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:14:13] "GET /assets/element-ui.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:14:13] "GET /assets/markdown-it.min.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:14:14] "GET /assets/plan-renderer.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:14:14] "GET /assets/fonts/element-icons.woff HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:14:16] "GET /view_plans.html HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:14:16] "GET /plans HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:14:17] "GET /view_plans.html HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:14:17] "GET /plans HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:17:34] "GET /view_plans.html HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:17:50] "GET /view_plans.html HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:17:50] "GET /plans HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:18:21] "GET /view_plans.html HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:18:21] "GET /plans HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:24:46] "GET /download_plan?filename=%E6%AE%B7%E5%B0%8F%E9%B9%8F_%E9%99%A2%E6%A0%A1_%E7%89%A9%E7%90%86.md HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:24:46] "GET /download_plan?filename=%E6%AE%B7%E5%B0%8F%E9%B9%8F_%E9%99%A2%E6%A0%A1_%E7%89%A9%E7%90%86.md HTTP/1.1" 500 -
+127.0.0.1 - - [08/Jun/2026 17:24:59] "GET /plan_report?filename=%E5%93%88%E5%93%88_UCL_%E6%95%B0%E5%AD%A6.md HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:25:00] "GET /assets/dashboard-ui.css?v=1 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:25:00] "GET /assets/plan-report.css?v=3 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:25:00] "GET /assets/markdown-it.min.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:25:00] "GET /assets/plan-renderer.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:25:00] "GET /view_plan?filename=%E5%93%88%E5%93%88_UCL_%E6%95%B0%E5%AD%A6.md HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:26:51] "GET /view_plans.html HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:26:51] "GET /view_plans.html HTTP/1.1" 200 -
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 5018)
+Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3568.0_x64__qbz5n2kfra8p0\Lib\socketserver.py", line 318, in _handle_request_noblock
+    self.process_request(request, client_address)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3568.0_x64__qbz5n2kfra8p0\Lib\socketserver.py", line 349, in process_request
+    self.finish_request(request, client_address)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3568.0_x64__qbz5n2kfra8p0\Lib\socketserver.py", line 362, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3568.0_x64__qbz5n2kfra8p0\Lib\socketserver.py", line 766, in __init__
+    self.handle()
+    ~~~~~~~~~~~^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3568.0_x64__qbz5n2kfra8p0\Lib\http\server.py", line 447, in handle
+    self.handle_one_request()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3568.0_x64__qbz5n2kfra8p0\Lib\http\server.py", line 435, in handle_one_request
+    method()
+    ~~~~~~^^
+  File "D:\AI学习\plan_agent\server.py", line 270, in do_GET
+    self.wfile.write(f.read().encode('utf-8'))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3568.0_x64__qbz5n2kfra8p0\Lib\socketserver.py", line 845, in write
+    self._sock.sendall(b)
+    ~~~~~~~~~~~~~~~~~~^^^
+ConnectionAbortedError: [WinError 10053] 你的主机中的软件中止了一个已建立的连接。
+----------------------------------------
+127.0.0.1 - - [08/Jun/2026 17:26:51] "GET /plans HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:27:27] "GET /view_plans.html HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:27:27] "GET /plans HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:29:00] "GET /view_plans.html HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:29:21] "GET /view_plans.html HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:29:21] "GET /plans HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:31:06] "GET /view_plans.html HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:31:28] "GET /view_plans.html HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:31:28] "GET /plans HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:31:47] "GET /view_plans.html HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:31:47] "GET /plans HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:31:56] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:31:56] "GET /assets/element-ui.css HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:31:56] "GET /assets/dashboard-ui.css?v=1 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:31:56] "GET /assets/plan-report.css?v=3 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:31:56] "GET /assets/vue.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:31:56] "GET /assets/markdown-it.min.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:31:56] "GET /assets/element-ui.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:31:56] "GET /assets/plan-renderer.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:31:57] "GET /assets/fonts/element-icons.woff HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:32:02] "GET /view_plans.html HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:32:02] "GET /plans HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:32:04] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:32:04] "GET /assets/element-ui.css HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:32:05] "GET /assets/dashboard-ui.css?v=1 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:32:05] "GET /assets/plan-report.css?v=3 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:32:05] "GET /assets/vue.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:32:05] "GET /assets/element-ui.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:32:05] "GET /assets/markdown-it.min.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:32:05] "GET /assets/plan-renderer.js?v=2 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:32:05] "GET /assets/fonts/element-icons.woff HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:32:06] "GET /view_plans.html HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jun/2026 17:32:06] "GET /plans HTTP/1.1" 200 -

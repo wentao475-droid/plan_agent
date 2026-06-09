@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>规划方案</title>
+    <link rel="stylesheet" href="/assets/dashboard-ui.css?v=1">
+    <link rel="stylesheet" href="/assets/plan-report.css?v=3">
+    <style>
+        .report-shell {
+            min-width: 0;
+        }
+
+        .report-shell .plan-report {
+            max-width: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .report-shell .plan-report__hero,
+        .report-shell .plan-report__content,
+        .report-shell .plan-report__toc {
+            box-shadow: var(--dash-shadow);
+        }
+
+        .report-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .action-button {
+            min-height: 38px;
+            border: 0;
+            border-radius: 4px;
+            padding: 8px 16px;
+            background: var(--dash-cyan);
+            color: #ffffff;
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+        .action-button.secondary {
+            background: var(--dash-green);
+        }
+
+        .report-loading {
+            background: var(--dash-surface);
+            border-radius: 8px;
+            padding: 64px 24px;
+            text-align: center;
+            color: #687587;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-mark">P</div>
+                <div class="brand-name">planschool</div>
+            </div>
+
+            <nav class="nav" aria-label="主导航">
+                <a class="nav-link" href="/"><span class="nav-symbol" aria-hidden="true">+</span>新建规划</a>
+                <a class="nav-link active" href="/view_plans.html"><span class="nav-dot" aria-hidden="true"></span>报告展示</a>
+            </nav>
+        </aside>
+
+        <main class="main">
+            <header class="topbar">
+                <div class="title-wrap">
+                    <button class="menu-button" type="button" aria-label="菜单"></button>
+                    <h1 class="page-title">Report Dashboard</h1>
+                </div>
+                <div class="profile" aria-label="当前用户">
+                    <div class="profile-text">
+                        <strong>升学规划系统</strong>
+                        <span>Advisor Workspace</span>
+                    </div>
+                    <div class="avatar">A</div>
+                </div>
+            </header>
+
+            <section class="stats" aria-label="报告概览">
+                <article class="stat-card">
+                    <div class="stat-icon">R</div>
+                    <div>
+                        <div class="stat-label">Report</div>
+                        <div class="stat-value">阅读页</div>
+                    </div>
+                </article>
+                <article class="stat-card">
+                    <div class="stat-icon">M</div>
+                    <div>
+                        <div class="stat-label">Markdown</div>
+                        <div class="stat-value">已渲染</div>
+                    </div>
+                </article>
+                <article class="stat-card">
+                    <div class="stat-icon">T</div>
+                    <div>
+                        <div class="stat-label">Table</div>
+                        <div class="stat-value">目录</div>
+                    </div>
+                </article>
+                <article class="stat-card">
+                    <div class="stat-icon">Y</div>
+                    <div>
+                        <div class="stat-label">Year</div>
+                        <div class="stat-value" id="currentYear">2026</div>
+                    </div>
+                </article>
+            </section>
+
+            <div class="content-grid">
+                <section class="report-shell">
+                    <div class="section-card">
+                        <div class="section-head">
+                            <h2 class="section-title" id="reportTitle">规划方案报告</h2>
+                            <div class="report-actions">
+                                <button class="action-button" type="button" onclick="window.location.href='/view_plans.html'">返回方案库</button>
+                                <button class="action-button secondary" type="button" onclick="window.close()">关闭窗口</button>
+                            </div>
+                        </div>
+                        <div id="reportRoot" class="report-loading">正在加载规划方案</div>
+                    </div>
+                </section>
+
+                <aside class="side-panel">
+                    <section class="quote-card" aria-label="报告标语">
+                        <div class="quote-mark">"</div>
+                        <strong>READ CLEAR</strong>
+                        <span>Markdown 内容已转换成更适合阅读的正式报告。</span>
+                    </section>
+
+                    <section class="info-card" aria-label="阅读提示">
+                        <h2>阅读提示</h2>
+                        <div class="info-list">
+                            <p>左侧目录可快速跳转到关键章节。</p>
+                            <p>原始 Markdown 文件仍可在方案库下载。</p>
+                            <p>长内容在移动端会自动单栏排版。</p>
+                        </div>
+                    </section>
+                </aside>
+            </div>
+        </main>
+    </div>
+
+    <script src="/assets/markdown-it.min.js?v=2"></script>
+    <script src="/assets/plan-renderer.js?v=2"></script>
+    <script>
+        function escapeHtml(value) {
+            return String(value || '')
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+
+        async function loadReport() {
+            const params = new URLSearchParams(window.location.search);
+            const filename = params.get('filename');
+            const reportRoot = document.getElementById('reportRoot');
+            const reportTitle = document.getElementById('reportTitle');
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+            if (!filename) {
+                reportRoot.innerHTML = '<div class="plan-report"><div class="plan-report__empty">缺少方案文件名。</div></div>';
+                return;
+            }
+
+            const title = filename.replace(/\.md$/i, '');
+            document.title = title;
+            reportTitle.textContent = title;
+
+            try {
+                const response = await fetch(`/view_plan?filename=${encodeURIComponent(filename)}`);
+                if (!response.ok) {
+                    throw new Error(`查看方案失败: ${response.status}`);
+                }
+
+                const content = await response.text();
+                reportRoot.classList.remove('report-loading');
+                window.PlanRenderer.renderReport(content, {}, reportRoot, { title });
+            } catch (error) {
+                reportRoot.innerHTML = `<div class="plan-report"><div class="plan-report__empty">${escapeHtml(error.message)}</div></div>`;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', loadReport);
+    </script>
+</body>
+</html>
