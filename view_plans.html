@@ -588,8 +588,8 @@
             </div>
 
             <nav class="nav" aria-label="主导航">
-                <a class="nav-link active" href="/view_plans.html"><span class="nav-dot" aria-hidden="true"></span>规划方案</a>
-                <a class="nav-link" href="/"><span class="nav-symbol" aria-hidden="true">+</span>新建规划</a>
+                <a class="nav-link active" href="view_plans.html"><span class="nav-dot" aria-hidden="true"></span>规划方案</a>
+                <a class="nav-link" href="plan_study_form.html"><span class="nav-symbol" aria-hidden="true">+</span>新建规划</a>
             </nav>
         </aside>
 
@@ -644,14 +644,14 @@
                     <div class="section-card">
                         <div class="section-head">
                             <h2 class="section-title">已生成的规划方案</h2>
-                            <a href="/" class="back-button">返回填写页面</a>
+                            <a href="plan_study_form.html" class="back-button">返回填写页面</a>
                         </div>
 
                         <div id="loading" class="loading" style="display: block;">正在加载方案列表</div>
                         <ul id="plansList" class="plans-list" style="display: none;"></ul>
                         <div id="emptyState" class="empty-state" style="display: none;">
                             <p>暂无已生成的规划方案</p>
-                            <a href="/" class="back-button">去生成新方案</a>
+                            <a href="plan_study_form.html" class="back-button">去生成新方案</a>
                         </div>
                     </div>
                 </section>
@@ -684,7 +684,11 @@
 
         async function fetchPlans() {
             try {
-                const response = await fetch('/plans');
+                let response = await fetch('plans');
+
+                if (!response.ok) {
+                    response = await fetch('plans.json');
+                }
 
                 if (!response.ok) {
                     throw new Error(`获取方案列表失败: ${response.status}`);
@@ -746,12 +750,12 @@
         }
 
         function viewPlan(filename) {
-            window.open(`/plan_report?filename=${encodeURIComponent(filename)}`, '_blank');
+            window.open(`plan_report.html?filename=${encodeURIComponent(filename)}`, '_blank');
         }
 
         function downloadPlan(filename) {
             const a = document.createElement('a');
-            a.href = `/download_plan?filename=${encodeURIComponent(filename)}`;
+            a.href = filename;
             a.download = filename;
             document.body.appendChild(a);
             a.click();
@@ -764,7 +768,7 @@
 
             loading.style.display = 'none';
             emptyState.style.display = 'block';
-            emptyState.innerHTML = `<p>${escapeHtml(message)}</p><a href="/" class="back-button">返回填写页面</a>`;
+            emptyState.innerHTML = `<p>${escapeHtml(message)}</p><a href="plan_study_form.html" class="back-button">返回填写页面</a>`;
         }
 
         function majorClass(major) {

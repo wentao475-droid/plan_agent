@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>学员规划信息表</title>
-    <link rel="stylesheet" href="/assets/element-ui.css">
-    <link rel="stylesheet" href="/assets/dashboard-ui.css?v=1">
-    <link rel="stylesheet" href="/assets/plan-report.css?v=3">
+    <link rel="stylesheet" href="assets/element-ui.css">
+    <link rel="stylesheet" href="assets/dashboard-ui.css?v=1">
+    <link rel="stylesheet" href="assets/plan-report.css?v=3">
     <style>
         [v-cloak] {
             display: none;
@@ -161,8 +161,8 @@
                 </div>
 
                 <nav class="nav" aria-label="主导航">
-                    <a class="nav-link active" href="/"><span class="nav-dot" aria-hidden="true"></span>新建规划</a>
-                    <a class="nav-link" href="/view_plans.html"><span class="nav-symbol" aria-hidden="true">D</span>报告展示</a>
+                    <a class="nav-link active" href="plan_study_form.html"><span class="nav-dot" aria-hidden="true"></span>新建规划</a>
+                    <a class="nav-link" href="view_plans.html"><span class="nav-symbol" aria-hidden="true">D</span>报告展示</a>
                 </nav>
             </aside>
 
@@ -217,7 +217,7 @@
                         <div class="section-card">
                             <div class="section-head">
                                 <h2 class="section-title">学员规划信息表</h2>
-                                <a href="/view_plans.html" class="outline-button">查看已生成方案</a>
+                                <a href="view_plans.html" class="outline-button">查看已生成方案</a>
                             </div>
 
                             <div class="intake-panel">
@@ -338,10 +338,10 @@
         </div>
     </div>
 
-    <script src="/assets/vue.min.js"></script>
-    <script src="/assets/element-ui.min.js"></script>
-    <script src="/assets/markdown-it.min.js?v=2"></script>
-    <script src="/assets/plan-renderer.js?v=2"></script>
+    <script src="assets/vue.min.js"></script>
+    <script src="assets/element-ui.min.js"></script>
+    <script src="assets/markdown-it.min.js?v=2"></script>
+    <script src="assets/plan-renderer.js?v=2"></script>
     <script>
         new Vue({
             el: '#app',
@@ -428,7 +428,7 @@
                     return match ? match.label : '';
                 },
                 goToPlans() {
-                    window.location.href = '/view_plans.html';
+                    window.location.href = 'view_plans.html';
                 },
                 generatePlan() {
                     this.$refs.planForm.validate(async valid => {
@@ -446,7 +446,7 @@
                         this.statusMessage = '正在执行工作流生成规划方案，请稍候...';
 
                         try {
-                            const response = await fetch('/process', {
+                            const response = await fetch('process', {
                                 method: 'POST',
                                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                                 body: new URLSearchParams({ json_data: JSON.stringify(parameters) })
