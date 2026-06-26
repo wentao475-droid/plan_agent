@@ -234,6 +234,290 @@
     color: #64748b;
 }
 
+.json-report__content {
+    display: grid;
+    gap: 28px;
+}
+
+.json-report__summary,
+.json-report__section {
+    min-width: 0;
+}
+
+.json-report__summary h2,
+.json-section-head h2 {
+    margin: 0 0 8px;
+    color: #182435;
+    font-size: 22px;
+    line-height: 1.3;
+}
+
+.json-report__summary p,
+.json-section-head p {
+    margin: 0;
+    color: #526173;
+}
+
+.json-report__warning {
+    margin-top: 12px !important;
+    color: #9a5b00 !important;
+    font-weight: 700;
+}
+
+.json-risk-inline {
+    margin-top: 16px;
+    padding: 14px 16px;
+    background: #fff8e6;
+    border: 1px solid #f4d78b;
+    border-radius: 8px;
+}
+
+.json-risk-inline strong {
+    display: block;
+    margin-bottom: 8px;
+    color: #182435;
+}
+
+.json-school-group {
+    margin-top: 20px;
+}
+
+.json-school-group h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 12px;
+    color: #243246;
+    font-size: 18px;
+}
+
+.json-school-group h3 span {
+    color: #64748b;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.json-school-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.json-school-card {
+    min-width: 0;
+    border-radius: 8px;
+    padding: 18px;
+    background: #f7f9fc;
+    border: 1px solid #e3e8ef;
+}
+
+.json-school-card--reach {
+    background: #eef1ff;
+    border-color: #cfd5ff;
+}
+
+.json-school-card--match {
+    background: #eaf8ff;
+    border-color: #ccecff;
+}
+
+.json-school-card--safety {
+    background: #ecfbf3;
+    border-color: #c9f0d9;
+}
+
+.json-school-card__top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.json-school-card__top strong {
+    color: #172033;
+    font-size: 18px;
+    line-height: 1.25;
+}
+
+.json-school-card__badge {
+    flex: 0 0 auto;
+    min-height: 24px;
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: #20242d;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.json-school-card__program {
+    margin: 0 0 12px;
+    color: #526173;
+}
+
+.json-score {
+    height: 8px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: rgba(32, 36, 45, 0.12);
+}
+
+.json-score span {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    background: #2c36bd;
+}
+
+.json-school-card__stats {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 8px 0 12px;
+    color: #334155;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.json-school-card p {
+    margin: 0 0 14px;
+    color: #334155;
+}
+
+.json-school-card dl {
+    display: grid;
+    gap: 8px;
+    margin: 0;
+}
+
+.json-school-card dt {
+    color: #64748b;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.json-school-card dd {
+    margin: 2px 0 0;
+    color: #1f2937;
+    font-size: 13px;
+    line-height: 1.45;
+}
+
+.json-table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid #dce5ef;
+    border-radius: 8px;
+    background: #ffffff;
+}
+
+.json-comparison-table {
+    width: 100%;
+    min-width: 960px;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.json-comparison-table th,
+.json-comparison-table td {
+    padding: 12px;
+    border-bottom: 1px solid #e6edf5;
+    text-align: left;
+    vertical-align: top;
+}
+
+.json-comparison-table th {
+    background: #f4f7fb;
+    color: #1e293b;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.json-comparison-table td span {
+    display: block;
+    margin-top: 4px;
+    color: #64748b;
+    font-size: 12px;
+}
+
+.json-timeline {
+    display: grid;
+    gap: 14px;
+}
+
+.json-timeline-item {
+    display: grid;
+    grid-template-columns: minmax(160px, 220px) minmax(0, 1fr);
+    gap: 18px;
+    padding: 16px;
+    border: 1px solid #e3e8ef;
+    border-radius: 8px;
+    background: #f8fafc;
+}
+
+.json-timeline-item strong,
+.json-timeline-item span {
+    display: block;
+}
+
+.json-timeline-item strong {
+    color: #172033;
+}
+
+.json-timeline-item span {
+    margin-top: 4px;
+    color: #64748b;
+    font-size: 13px;
+}
+
+.json-advice-grid,
+.json-risk-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.json-advice-card,
+.json-risk-card {
+    min-width: 0;
+    padding: 16px;
+    border: 1px solid #e3e8ef;
+    border-radius: 8px;
+    background: #ffffff;
+}
+
+.json-advice-card h3,
+.json-risk-card h3 {
+    margin: 0 0 10px;
+    color: #172033;
+    font-size: 16px;
+}
+
+.json-report__content ul {
+    margin: 0 0 0 18px;
+    padding: 0;
+}
+
+.json-report__content li {
+    margin: 6px 0;
+    color: #334155;
+}
+
+.json-report__muted {
+    color: #64748b;
+}
+
+.json-report__disclaimer {
+    margin: 0;
+    padding: 14px 16px;
+    border-radius: 8px;
+    background: #f6f9fc;
+    color: #64748b;
+    font-size: 13px;
+}
+
 @media (max-width: 860px) {
     .plan-report {
         padding: 0 14px 32px;
@@ -257,5 +541,12 @@
 
     .plan-report__content {
         padding: 24px 20px;
+    }
+
+    .json-school-grid,
+    .json-advice-grid,
+    .json-risk-grid,
+    .json-timeline-item {
+        grid-template-columns: 1fr;
     }
 }

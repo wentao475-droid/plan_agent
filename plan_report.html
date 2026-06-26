@@ -93,7 +93,7 @@
                 <article class="stat-card">
                     <div class="stat-icon">M</div>
                     <div>
-                        <div class="stat-label">Markdown</div>
+                        <div class="stat-label">Data</div>
                         <div class="stat-value">已渲染</div>
                     </div>
                 </article>
@@ -131,7 +131,7 @@
                     <section class="quote-card" aria-label="报告标语">
                         <div class="quote-mark">"</div>
                         <strong>READ CLEAR</strong>
-                        <span>Markdown 内容已转换成更适合阅读的正式报告。</span>
+                        <span>规划内容已转换成更适合阅读和对比的正式报告。</span>
                     </section>
 
                     <section class="info-card" aria-label="阅读提示">
@@ -148,7 +148,8 @@
     </div>
 
     <script src="assets/markdown-it.min.js?v=2"></script>
-    <script src="assets/plan-renderer.js?v=2"></script>
+    <script src="assets/plan-renderer.js?v=3"></script>
+    <script src="assets/plan-json-renderer.js?v=4"></script>
     <script>
         function escapeHtml(value) {
             return String(value || '')
@@ -171,7 +172,7 @@
                 return;
             }
 
-            const title = filename.replace(/\.md$/i, '');
+            const title = filename.replace(/\.(md|json)$/i, '');
             document.title = title;
             reportTitle.textContent = title;
 
@@ -186,6 +187,15 @@
 
                 const content = await response.text();
                 reportRoot.classList.remove('report-loading');
+                if (filename.toLowerCase().endsWith('.json') && window.PlanJsonRenderer.renderReport(content, reportRoot, { title })) {
+                    return;
+                }
+
+                const parsedJson = window.PlanJsonRenderer.parsePlan(content);
+                if (parsedJson && window.PlanJsonRenderer.renderReport(parsedJson, reportRoot, { title })) {
+                    return;
+                }
+
                 window.PlanRenderer.renderReport(content, {}, reportRoot, { title });
             } catch (error) {
                 reportRoot.innerHTML = `<div class="plan-report"><div class="plan-report__empty">${escapeHtml(error.message)}</div></div>`;

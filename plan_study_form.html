@@ -282,8 +282,8 @@
                                             </el-form-item>
                                         </el-col>
                                         <el-col :xs="24" :sm="12">
-                                            <el-form-item label="IELTS" prop="ielts">
-                                                <el-input v-model.trim="form.ielts" placeholder="如: 6.5"></el-input>
+                                            <el-form-item label="语言成绩/准备状态" prop="language_status">
+                                                <el-input v-model.trim="form.language_status" placeholder="如: 雅思6.5，准备二刷"></el-input>
                                             </el-form-item>
                                         </el-col>
 
@@ -295,6 +295,21 @@
                                         <el-col :xs="24" :sm="12">
                                             <el-form-item label="意向专业" prop="Intended_Major">
                                                 <el-input v-model.trim="form.Intended_Major" placeholder="如: 数学"></el-input>
+                                            </el-form-item>
+                                        </el-col>
+
+                                        <el-col :xs="24" :sm="12">
+                                            <el-form-item label="年度留学预算" prop="budget_preference">
+                                                <el-select v-model="form.budget_preference" placeholder="请选择年度留学预算" clearable>
+                                                    <el-option v-for="item in options.budgetPreferences" :key="item.value" :label="item.label" :value="item.value"></el-option>
+                                                </el-select>
+                                            </el-form-item>
+                                        </el-col>
+                                        <el-col :xs="24" :sm="12">
+                                            <el-form-item label="留学城市偏好" prop="location_preference">
+                                                <el-select v-model="form.location_preference" placeholder="请选择留学城市偏好" clearable>
+                                                    <el-option v-for="item in options.locationPreferences" :key="item.value" :label="item.label" :value="item.value"></el-option>
+                                                </el-select>
                                             </el-form-item>
                                         </el-col>
                                     </el-row>
@@ -328,7 +343,7 @@
 
                         <section class="form-tip-card" aria-label="填写提示">
                             <h2>填写提示</h2>
-                            <p>目标院校、专业和 IELTS 已设为必填，确保工作流入参完整。</p>
+                            <p>目标院校和专业为必填；语言状态、年度预算和城市偏好可按实际情况补充。</p>
                             <p>生成后会自动下载参数 JSON，并展示规划报告。</p>
                             <p>方案库中仍可查看和下载原始 Markdown。</p>
                         </section>
@@ -341,7 +356,8 @@
     <script src="assets/vue.min.js"></script>
     <script src="assets/element-ui.min.js"></script>
     <script src="assets/markdown-it.min.js?v=2"></script>
-    <script src="assets/plan-renderer.js?v=2"></script>
+    <script src="assets/plan-renderer.js?v=3"></script>
+    <script src="assets/plan-json-renderer.js?v=4"></script>
     <script>
         new Vue({
             el: '#app',
@@ -361,7 +377,9 @@
                         Study_Region: '',
                         Intended_Institution: '',
                         Intended_Major: '',
-                        ielts: ''
+                        language_status: '',
+                        budget_preference: '',
+                        location_preference: ''
                     },
                     rules: {
                         Student_Name: required('请输入学员姓名'),
@@ -372,16 +390,14 @@
                         Planned_Year: required('请选择计划入学年'),
                         Study_Region: required('请选择留学地区'),
                         Intended_Institution: required('请输入意向院校'),
-                        Intended_Major: required('请输入意向专业'),
-                        ielts: required('请输入 IELTS 成绩')
+                        Intended_Major: required('请输入意向专业')
                     },
                     options: {
                         grades: [
-                            { value: '9', label: '9年级' },
-                            { value: '10', label: '10年级' },
-                            { value: '11', label: '11年级' },
-                            { value: '12', label: '12年级' },
-                            { value: '13', label: '13年级' }
+                            { value: '1', label: '9年级' },
+                            { value: '2', label: '10年级' },
+                            { value: '3', label: '11年级' },
+                            { value: '4', label: '12年级' }
                         ],
                         examSystems: [
                             { value: '1', label: 'ALEVEL' },
@@ -418,6 +434,20 @@
                             { value: '5', label: '新加坡' },
                             { value: '6', label: '香港' },
                             { value: '7', label: '新西兰' }
+                        ],
+                        budgetPreferences: [
+                            { value: '30万元以下/年', label: '30万元以下/年' },
+                            { value: '30-50万元/年', label: '30-50万元/年' },
+                            { value: '50-70万元/年', label: '50-70万元/年' },
+                            { value: '70万元以上/年', label: '70万元以上/年' },
+                            { value: '暂不确定', label: '暂不确定' }
+                        ],
+                        locationPreferences: [
+                            { value: '国际大都市', label: '国际大都市' },
+                            { value: '大中型城市', label: '大中型城市' },
+                            { value: '大学城/小城市', label: '大学城/小城市' },
+                            { value: '乡村/安静地区', label: '乡村/安静地区' },
+                            { value: '不限', label: '不限' }
                         ]
                     }
                 };
@@ -461,7 +491,13 @@
                                 throw new Error(result.message || '执行失败');
                             }
 
-                            if (result.md_content) {
+                            if (result.planning_json) {
+                                this.statusType = 'success';
+                                this.statusMessage = '规划方案已生成，结构化选校报告已展示在页面下方。';
+                                const planContainer = document.getElementById('planContainer');
+                                window.PlanJsonRenderer.renderReport(result.planning_json, planContainer);
+                                this.$nextTick(() => planContainer.scrollIntoView({ behavior: 'smooth' }));
+                            } else if (result.md_content) {
                                 this.statusType = 'success';
                                 this.statusMessage = '规划方案已生成，报告已展示在页面下方。';
                                 const planContainer = document.getElementById('planContainer');

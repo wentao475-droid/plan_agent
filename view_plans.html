@@ -724,7 +724,7 @@
             plans.forEach(plan => {
                 const li = document.createElement('li');
 
-                const filenameParts = plan.filename.replace('.md', '').split('_');
+                const filenameParts = plan.filename.replace(/\.(md|json)$/i, '').split('_');
                 const studentName = filenameParts[0] || '未知学生';
                 const institution = filenameParts[1] || '未知院校';
                 const major = filenameParts.slice(2).join('_') || '未知专业';

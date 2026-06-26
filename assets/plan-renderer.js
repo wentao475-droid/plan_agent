@@ -102,7 +102,9 @@
             ['留学地区', mappings.Study_Region[p.Study_Region] || p.Study_Region],
             ['目标院校', p.Intended_Institution],
             ['目标专业', p.Intended_Major],
-            ['IELTS', p.ielts]
+            ['语言状态', p.language_status],
+            ['年度预算', p.budget_preference],
+            ['城市偏好', p.location_preference]
         ];
 
         return rows

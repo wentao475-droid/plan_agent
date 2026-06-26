@@ -18,6 +18,130 @@ PORT = 8003
 # 获取当前脚本所在目录
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 
+def extract_planning_json(text):
+    """Return a compact JSON string when stdout contains a structured plan."""
+    value = (text or '').strip()
+    if not value:
+        return ''
+
+    try:
+        parsed = json.loads(value)
+        if is_structured_plan(parsed):
+            return json.dumps(parsed, ensure_ascii=False)
+    except json.JSONDecodeError:
+        pass
+
+    fragmented = parse_fragmented_plan(value)
+    if is_structured_plan(fragmented):
+        return json.dumps(fragmented, ensure_ascii=False)
+
+    start = value.find('{')
+    end = value.rfind('}')
+    if start >= 0 and end > start:
+        try:
+            parsed = json.loads(value[start:end + 1])
+            if is_structured_plan(parsed):
+                return json.dumps(parsed, ensure_ascii=False)
+        except json.JSONDecodeError:
+            return ''
+    return ''
+
+def parse_fragmented_plan(text):
+    decoder = json.JSONDecoder()
+    fragments = []
+    position = 0
+
+    while position < len(text):
+        while position < len(text) and text[position].isspace():
+            position += 1
+        if position >= len(text) or text[position] not in '[{':
+            break
+        try:
+            fragment, position = decoder.raw_decode(text, position)
+            fragments.append(fragment)
+        except json.JSONDecodeError:
+            break
+
+    if len(fragments) < 2:
+        return None
+
+    plan = {'school_recommend': [], 'timeline': [], 'risk_plan': []}
+    profile_keys = {
+        'grade', 'examination_system', 'grade_range', 'strong_subject_categ',
+        'planned_year', 'study_region', 'intended_institution', 'intended_major'
+    }
+
+    for fragment in fragments:
+        if isinstance(fragment, list):
+            first = next((item for item in fragment if isinstance(item, dict)), None)
+            if first and ('school_name' in first or 'program_name' in first):
+                plan['school_recommend'] = fragment
+            elif first and ('stage' in first or 'time_range' in first):
+                plan['timeline'] = fragment
+            elif first and ('risk' in first or 'impact' in first or 'solution' in first):
+                plan['risk_plan'] = fragment
+            elif all(isinstance(item, str) for item in fragment):
+                plan['missing_fields'] = fragment
+        elif not isinstance(fragment, dict):
+            continue
+        elif isinstance(fragment.get('school_recommend'), list):
+            plan.update(fragment)
+        elif isinstance(fragment.get('student_profile'), dict):
+            plan.update(fragment)
+        elif profile_keys.intersection(fragment):
+            plan['student_profile'] = fragment
+        elif {'positioning', 'strategy', 'key_risks'}.intersection(fragment):
+            plan['summary'] = fragment
+        elif 'school_name' in fragment:
+            if str(fragment.get('school_name') or '').strip():
+                plan['school_recommend'].append(fragment)
+        elif {'stage', 'time_range'}.intersection(fragment):
+            if fragment.get('stage') or fragment.get('tasks') or fragment.get('time_range'):
+                plan['timeline'].append(fragment)
+        elif {'academic', 'language', 'activities', 'materials'}.intersection(fragment):
+            plan['bg_suggestion'] = fragment
+        elif {'risk', 'impact', 'solution'}.intersection(fragment):
+            if fragment.get('risk') or fragment.get('impact') or fragment.get('solution'):
+                plan['risk_plan'].append(fragment)
+
+    remainder = text[position:].strip()
+    if remainder:
+        first_line = remainder.splitlines()[0].strip()
+        if first_line and not first_line.lower().startswith(('got it', 'first,', 'wait,')):
+            plan['disclaimer'] = first_line
+    return plan
+
+def is_structured_plan(value):
+    return isinstance(value, dict) and (
+        'school_recommend' in value or
+        (
+            'student_profile' in value and
+            ('timeline' in value or 'risk_plan' in value or 'bg_suggestion' in value)
+        )
+    )
+
+def extract_error_message(stdout_text, stderr_text):
+    value = (stdout_text or '').strip()
+    if value:
+        try:
+            parsed = json.loads(value)
+            if isinstance(parsed, dict):
+                message = parsed.get('msg') or parsed.get('message')
+                if message:
+                    return message
+        except json.JSONDecodeError:
+            pass
+    return (stderr_text or '').strip()
+
+def is_error_artifact(file_path):
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            content = f.read(4096).strip()
+        parsed = json.loads(content)
+        return isinstance(parsed, dict) and parsed.get('code') not in (None, 0)
+    except Exception:
+        return False
+
 class RequestHandler(http.server.BaseHTTPRequestHandler):
     """HTTP请求处理器"""
     
@@ -58,17 +182,21 @@ class RequestHandler(http.server.BaseHTTPRequestHandler):
                 
                 # 返回执行结果
                 self.send_response(200)
-                self.send_header('Content-type', 'application/json')
+                self.send_header('Content-type', 'application/json; charset=utf-8')
                 self.end_headers()
                 
-                # 从stdout中提取MD内容（PlanStudy.py会将MD内容打印到stdout）
+                # 从stdout中提取方案内容（PlanStudy.py会将最终内容打印到stdout）
                 md_content = result.get('stdout', '')
+                planning_json = extract_planning_json(md_content)
+                is_success = result.get('returncode') == 0
                 
                 response = {
-                    'status': 'success',
+                    'status': 'success' if is_success else 'error',
                     'filename': filename,
                     'result': result,
-                    'md_content': md_content
+                    'md_content': md_content,
+                    'planning_json': planning_json,
+                    'message': extract_error_message(md_content, result.get('stderr', ''))
                 }
                 
                 self.wfile.write(json.dumps(response, ensure_ascii=False).encode('utf-8'))
@@ -136,12 +264,18 @@ class RequestHandler(http.server.BaseHTTPRequestHandler):
     def get_plans_list(self):
         """获取方案列表"""
         try:
-            # 列出当前目录下所有.md文件
+            # 列出当前目录下所有方案文件
             plans = []
             for filename in os.listdir(SCRIPT_DIR):
-                if filename.endswith('.md'):
+                is_plan_file = (
+                    filename.endswith('.md') or
+                    (filename.endswith('.json') and filename != 'plans.json' and not filename.endswith('_parameters.json'))
+                )
+                if is_plan_file:
                     file_path = os.path.join(SCRIPT_DIR, filename)
                     if os.path.isfile(file_path):
+                        if is_error_artifact(file_path):
+                            continue
                         # 获取文件信息
                         file_info = os.stat(file_path)
                         plans.append({
@@ -155,7 +289,7 @@ class RequestHandler(http.server.BaseHTTPRequestHandler):
             
             # 返回方案列表
             self.send_response(200)
-            self.send_header('Content-type', 'application/json')
+            self.send_header('Content-type', 'application/json; charset=utf-8')
             self.end_headers()
             self.wfile.write(json.dumps(plans, ensure_ascii=False).encode('utf-8'))
         except Exception as e:
@@ -175,8 +309,8 @@ class RequestHandler(http.server.BaseHTTPRequestHandler):
             filename = params['filename'][0]
             file_path = os.path.join(SCRIPT_DIR, filename)
             
-            # 检查文件是否存在且是.md文件
-            if not os.path.exists(file_path) or not filename.endswith('.md'):
+            # 检查文件是否存在且是方案文件
+            if not os.path.exists(file_path) or not (filename.endswith('.md') or filename.endswith('.json')):
                 self.send_error(404, '文件不存在')
                 return
             
@@ -204,8 +338,8 @@ class RequestHandler(http.server.BaseHTTPRequestHandler):
             filename = params['filename'][0]
             file_path = os.path.join(SCRIPT_DIR, filename)
             
-            # 检查文件是否存在且是.md文件
-            if not os.path.exists(file_path) or not filename.endswith('.md'):
+            # 检查文件是否存在且是方案文件
+            if not os.path.exists(file_path) or not (filename.endswith('.md') or filename.endswith('.json')):
                 self.send_error(404, '文件不存在')
                 return
             
@@ -246,10 +380,12 @@ class RequestHandler(http.server.BaseHTTPRequestHandler):
     
     def do_GET(self):
         """处理GET请求"""
-        if self.path == '/':
+        request_path = self.path.split('?', 1)[0]
+
+        if request_path in ('/', '/plan_study_form.html', '/plan_study_form'):
             # 返回HTML页面
             self.send_response(200)
-            self.send_header('Content-type', 'text/html')
+            self.send_header('Content-type', 'text/html; charset=utf-8')
             self.end_headers()
             
             # 读取并返回HTML文件
@@ -257,7 +393,7 @@ class RequestHandler(http.server.BaseHTTPRequestHandler):
             if os.path.exists(html_path):
                 with open(html_path, 'r', encoding='utf-8') as f:
                     self.wfile.write(f.read().encode('utf-8'))
-        elif self.path == '/view_plans.html' or self.path == '/view_plans':
+        elif request_path in ('/view_plans.html', '/view_plans'):
             # 返回查看方案页面
             self.send_response(200)
             self.send_header('Content-type', 'text/html')
